@@ -72,10 +72,26 @@ describe('query operations', () => {
     });
   });
 
-  it('responds to hello world queries', async () => {
+  it('responds to hello world queries (GET)', async () => {
     const request = {
       method: 'get',
       url: '/graphql?query={ hello }',
+    };
+
+    const response = await server.inject(request);
+
+    expect(response.statusCode).toBe(200);
+    const payload = JSON.parse(response.payload);
+    expect(payload.data.hello).toBe('Hello world!');
+  });
+
+  it('responds to hello world queries (POST)', async () => {
+    const request = {
+      method: 'post',
+      url: '/graphql',
+      payload: {
+        query: '{hello}',
+      },
     };
 
     const response = await server.inject(request);

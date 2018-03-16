@@ -4,20 +4,20 @@ Create a GraphQL HTTP server with [Hapi](http://hapijs.com).
 Port from [express-graphql](https://github.com/graphql/express-graphql).
 
 ```js
-npm install --save hapi-graphql
+npm install --save hapi-graphql-2
 ```
 
 If you are using `yarn`
 
 ```js
-yarn add hapi-graphql
+yarn add hapi-graphql-2
 ```
 
 ### Example
 
 ```js
 const Hapi = require('hapi');
-const GraphQL = require('hapi-graphql');
+const GraphQL = require('hapi-graphql-2');
 const {GraphQLSchema} = require('graphql');
 
 const server = new Hapi.Server({

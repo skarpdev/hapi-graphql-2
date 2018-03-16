@@ -1,5 +1,5 @@
 {
-  "name": "hapi-graphql",
+  "name": "hapi-graphql-2",
   "version": "1.0.1",
   "description": "Create a GraphQL HTTP server with Hapi.",
   "author": "Simon Degraeve <simon.degraeve@gmail.com>",

@@ -1,19 +1,19 @@
 {
   "name": "hapi-graphql-2",
   "version": "2.0.0",
-  "description": "Create a GraphQL HTTP server with Hapi.",
-  "author": "Simon Degraeve <simon.degraeve@gmail.com>",
+  "description": "Create a GraphQL HTTP server with Hapi",
+  "author": "Nicklas Laine Overgaard <nicklas@skarp.dk>",
   "main": "./src/index.js",
   "license": "MIT",
   "engines": {
     "node": ">= 8.9.0"
   },
   "bugs": {
-    "url": "https://github.com/SimonDegraeve/hapi-graphql/issues"
+    "url": "https://github.com/skarpdev/hapi-graphql-2/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/SimonDegraeve/hapi-graphql.git"
+    "url": "https://github.com/skarpdev/hapi-graphql-2.git"
   },
   "keywords": [
     "hapi",

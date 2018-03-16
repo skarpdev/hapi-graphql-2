@@ -1,7 +1,7 @@
 {
   "name": "hapi-graphql-2",
   "version": "2.0.0",
-  "description": "Create a GraphQL HTTP server with Hapi v17",
+  "description": "Create a GraphQL HTTP server with Hapi",
   "author": "Nicklas Laine Overgaard <nicklas@skarp.dk>",
   "main": "./src/index.js",
   "license": "MIT",

@@ -1,7 +1,8 @@
+[![Build Status](https://travis-ci.org/skarpdev/hapi-graphql-2.svg?branch=master)](https://travis-ci.org/skarpdev/hapi-graphql-2)
 # GraphQL Hapi Plugin
 
 Create a GraphQL HTTP server with [Hapi](http://hapijs.com).
-Port from [express-graphql](https://github.com/graphql/express-graphql).
+Original code from [SimonDegraeves hapi-graphql](https://github.com/SimonDegraeve/hapi-graphql).
 
 ```js
 npm install --save hapi-graphql-2

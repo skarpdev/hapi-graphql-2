@@ -1,15 +1,19 @@
 language: node_js
 node_js:
-  - "8"
-
+- '8'
 cache:
   directories:
-    - "node_modules"
+  - node_modules
   yarn: true
-
-
 before_script:
-  - yarn install
-
+- yarn install
 script:
-  - yarn test
+- yarn test
+deploy:
+  provider: npm
+  email: nicklas@skarp.dk
+  api_key:
+    secure: MMIVTXhiqd710Fd3hZip4I1hDgqrYOMtf25fg9r6QDEqxKRPPwLKW1qy/StehL39RPIOmTYUajkAM2A+UjVqrGhjwHU3qiGH8VlHY+FWNm0luztNyKTiC/GpDOjQ43x6UFtL65ZQfUl5VhE7XiokU5ZwO8/typ+gptpaId61IrkyNJ5L/x9EQ+/Cto3yiE+lZ+l2CVYldZwqh9a18OEqhyPXBTafZsPtbwmmT0+0CPxerilBkV9hmXoqGFFk6CaUS62vtJkZsssXoroBHdkP9LHCDj0RxK/E8g7drUx8lZ2XShd0zouc3PFD+jcQYZK4CUyXX+F3qoGW+iK1+GCnjxYYIs0VpC2fPD5DfrydUM+AsvyL6AvdAZpYoYh55+QNuw3eSkteu+2TOAh608sSgHmrz0JuFpMMNVxwUDsXvGp/DIdn2RCHIA6RTi8+dRAejHcpn0Zk6dPm7IgRPj3wHZtizmjA+zkwdy2bwWV1bWy4MFuGIf4RpX5d07s7dvjlX4Q1ROcN400qz/vpFcQqqSkABk4SLwd7vZHdMmFpn8fjDB/g24ALKe7aylR5qGWdYOaaJPvIDr2IH/ZApkeu6PFb1Va9QHeWhK1P57FMMArk3kMACC8nkZNyjA6m+SPPELmbpQuGwD/9TAffBuFfOJWQQ/N5KVS7V+MboZ5v0Cs=
+  on:
+    tags: true
+    repo: skarpdev/hapi-graphql-2

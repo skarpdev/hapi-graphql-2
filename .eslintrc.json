@@ -1,0 +1,27 @@
+// https://github.com/mysticatea/eslint-plugin-node
+{
+  "env": {
+    "mocha": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "globals": {
+    "td": true
+  },
+  "plugins": [
+    "node",
+    "jest"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended"
+  ],
+  "rules": {
+    "node/exports-style": [
+      "error",
+      "module.exports"
+    ],
+    "node/no-unpublished-require": 0,
+    "node/no-extraneous-require": 0
+  }
+}

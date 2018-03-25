@@ -1,5 +1,6 @@
 const hapi = require('hapi');
 const { buildSchema } = require('graphql');
+const { hasRoute } = require('hapi-test-utils').routing;
 
 const plugin = require('./index');
 
@@ -10,18 +11,6 @@ type Query {
 `);
 const root = {
   hello: () => 'Hello world!',
-};
-
-const hasRoute = (server, path, method) => {
-  let foundRoute = false;
-
-  server.table().forEach((route) => {
-    if (route.path === path && route.method.toLowerCase() === method.toLowerCase()) {
-      foundRoute = true;
-    }
-  });
-
-  return foundRoute;
 };
 
 describe('plugin registration', () => {

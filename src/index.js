@@ -273,6 +273,10 @@ const handler = (route, options = {}) => async (request, h) => {
       .type('application/json');
   } catch (error) {
     // Return error, picking up Boom overrides
+    if(!error.output) {
+      // ensure that there is a output object to avoid destructuring errors
+      error.output = {};
+    }
     const { statusCode = 500 } = error.output;
     const errors = error.data || [error];
     return h

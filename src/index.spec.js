@@ -1,5 +1,9 @@
 const hapi = require('hapi');
 const { buildSchema } = require('graphql');
+const {
+  GraphQLObjectType,
+  GraphQLSchema,
+} = require('graphql');
 const { hasRoute } = require('hapi-test-utils').routing;
 
 const plugin = require('./index');
@@ -102,5 +106,57 @@ describe('query operations', () => {
     const payload = JSON.parse(response.payload);
     expect(payload.errors).toHaveLength(1);
     expect(payload.errors[0].message).toMatch(/Syntax Error/);
+  });
+});
+
+describe('malformed schemas', () => {
+  it('handles it by showing the schema error', async () => {
+    const rootSchema = new GraphQLSchema({
+      query: new GraphQLObjectType({
+        name: 'Query',
+        description: 'i haz the queries',
+        fields: () => ({
+
+        })
+      }),
+    });
+
+    const server = new hapi.Server();
+    await server.register({
+      plugin,
+      options: {
+        query: (request) => ({
+          schema: rootSchema,
+          formatError: error => ({
+            message: error.message,
+            locations: error.locations,
+            stack: error.stack
+          }),
+          context: {
+            request,
+          }
+        }),
+        route: {
+          path: '/graphql',
+        }
+      }
+    });
+
+    const request = {
+      method: 'POST',
+      url: '/graphql',
+      payload: {
+        query: `query giveIt {
+          someQuery {
+            id
+          }
+        }`,
+      },
+    };
+    const response = await server.inject(request);
+    expect(response.statusCode).toBe(500);
+    const data = JSON.parse(response.payload);
+    expect(data.errors).toHaveLength(1);
+    expect(data.errors[0].message).toMatch(/Type Query must define one or more fields/)
   });
 });

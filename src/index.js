@@ -277,7 +277,7 @@ const handler = (route, options = {}) => async (request, h) => {
       // ensure that there is a output object to avoid destructuring errors
       error.output = {};
     }
-    const { statusCode = 500 } = error.output;
+    const { statusCode = 500 } = error.output || {};
     const errors = error.data || [error];
     return h
       .response({ errors: errors.map(errorFormatter) })
